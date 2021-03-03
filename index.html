@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <!-- HEADER STARTS -->
+    <header>
+        <div class="wrapper">
+            <div class="header-wrapper">
+                <h2 class="section-title">Weather Here</h2>
+                <button class="upd-location">Update geolocation</button>
+            </div>
+        </div>
+    </header>
+    <!-- HEADER ENDS -->
+
+    <!-- MAIN STARTS -->
+    <main>
+        <div class="wrapper">
+            <!-- CURRENT CITY STARTS -->
+            <section class="current-city">
+                <div class="current-city-base">
+                    <h3 class="current-city-name">Saint-Petersburg</h3>
+                    <div class="current-icon-and-degree">
+                        <img src="./img/svg/water.svg" width="128" height="128" alt="rain" class="current-city-icon">
+                        <p class="current-city-degrees">3 &#176</p>
+                    </div>
+                </div>
+                <ul class="city-weather-desc">
+                    <li class="weather-detail">
+                        <b>Wind</b>
+                        <p>Moderate breeze, 6 m/s, North-northwest</p>
+                    </li>
+                    <li class="weather-detail">
+                        <b>Cloud cover</b>
+                        <p class="detail-desc">Broken clouds</p>
+                    </li>
+                    <li class="weather-detail">
+                        <b>Pressure</b>
+                        <p class="detail-desc">1013 mb</p>
+                    </li>
+                    <li class="weather-detail">
+                        <b>Humidity</b>
+                        <p class="detail-desc">48%</p>
+                    </li>
+                    <li class="weather-detail">
+                        <b>Coordinates</b>
+                        <p class="detail-desc">[59.48, 30.42]</p>
+                    </li>
+                </ul>
+            </section>
+            <!-- CURRENT CITY ENDS -->
+
+            <!-- FAVOURITES STARTS -->
+            <section class="favourites">
+                <div class="favourites-header">
+                    <h2 class="section-title">Favourites</h2>
+                    <form class="add-form">
+                        <fieldset class="add-form-wrapper">
+                            <input type="text" name="new-city" class="add-city-field" placeholder="Add new city">
+                            <button class="action-button">+</button>
+                        </fieldset>
+                    </form>
+                </div>
+                <ul class="favourite-cities">
+                    <li class="favourite-city">
+                        <div class="favourite-city-header">
+                            <h3 class="favourite-city-name">Moscow</h3>
+                            <p class="favourite-city-degrees">5 &#176</p>
+                            <img src="./img/svg/water.svg" alt="rain" width="48" height="48">
+                            <button class="action-button cross-button">+</button>
+                        </div>
+                        <ul class="city-weather-desc">
+                            <li class="weather-detail">
+                                <b>Wind</b>
+                                <p>Moderate breeze, 6 m/s, North-northwest</p>
+                            </li>
+                            <li class="weather-detail">
+                                <b>Cloud cover</b>
+                                <p class="detail-desc">Broken clouds</p>
+                            </li>
+                            <li class="weather-detail">
+                                <b>Pressure</b>
+                                <p class="detail-desc">1013 mb</p>
+                            </li>
+                            <li class="weather-detail">
+                                <b>Humidity</b>
+                                <p class="detail-desc">48%</p>
+                            </li>
+                            <li class="weather-detail">
+                                <b>Coordinates</b>
+                                <p class="detail-desc">[59.48, 30.42]</p>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="favourite-city">
+                        <div class="favourite-city-header">
+                            <h3 class="favourite-city-name">Moscow</h3>
+                            <p class="favourite-city-degrees">5 &#176</p>
+                            <img src="./img/svg/water.svg" alt="rain" width="48" height="48">
+                            <button class="action-button cross-button">+</button>
+                        </div>
+                        <ul class="city-weather-desc">
+                            <li class="weather-detail">
+                                <b>Wind</b>
+                                <p>Moderate breeze, 6 m/s, North-northwest</p>
+                            </li>
+                            <li class="weather-detail">
+                                <b>Cloud cover</b>
+                                <p class="detail-desc">Broken clouds</p>
+                            </li>
+                            <li class="weather-detail">
+                                <b>Pressure</b>
+                                <p class="detail-desc">1013 mb</p>
+                            </li>
+                            <li class="weather-detail">
+                                <b>Humidity</b>
+                                <p class="detail-desc">48%</p>
+                            </li>
+                            <li class="weather-detail">
+                                <b>Coordinates</b>
+                                <p class="detail-desc">[59.48, 30.42]</p>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="favourite-city">
+                        <div class="favourite-city-header">
+                            <h3 class="favourite-city-name">Moscow</h3>
+                            <p class="favourite-city-degrees">5 &#176</p>
+                            <img src="./img/svg/water.svg" alt="rain" width="48" height="48">
+                            <button class="action-button cross-button">+</button>
+                        </div>
+                        <ul class="city-weather-desc">
+                            <li class="weather-detail">
+                                <b>Wind</b>
+                                <p>Moderate breeze, 6 m/s, North-northwest</p>
+                            </li>
+                            <li class="weather-detail">
+                                <b>Cloud cover</b>
+                                <p class="detail-desc">Broken clouds</p>
+                            </li>
+                            <li class="weather-detail">
+                                <b>Pressure</b>
+                                <p class="detail-desc">1013 mb</p>
+                            </li>
+                            <li class="weather-detail">
+                                <b>Humidity</b>
+                                <p class="detail-desc">48%</p>
+                            </li>
+                            <li class="weather-detail">
+                                <b>Coordinates</b>
+                                <p class="detail-desc">[59.48, 30.42]</p>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="favourite-city">
+                        <div class="favourite-city-header">
+                            <h3 class="favourite-city-name">Moscow</h3>
+                            <p class="favourite-city-degrees">5 &#176</p>
+                            <img src="./img/svg/water.svg" alt="rain" width="48" height="48">
+                            <button class="action-button cross-button">+</button>
+                        </div>
+                        <ul class="city-weather-desc">
+                            <li class="weather-detail">
+                                <b>Wind</b>
+                                <p>Moderate breeze, 6 m/s, North-northwest</p>
+                            </li>
+                            <li class="weather-detail">
+                                <b>Cloud cover</b>
+                                <p class="detail-desc">Broken clouds</p>
+                            </li>
+                            <li class="weather-detail">
+                                <b>Pressure</b>
+                                <p class="detail-desc">1013 mb</p>
+                            </li>
+                            <li class="weather-detail">
+                                <b>Humidity</b>
+                                <p class="detail-desc">48%</p>
+                            </li>
+                            <li class="weather-detail">
+                                <b>Coordinates</b>
+                                <p class="detail-desc">[59.48, 30.42]</p>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="favourite-city">
+                        <div class="favourite-city-header">
+                            <h3 class="favourite-city-name">Moscow</h3>
+                            <p class="favourite-city-degrees">5 &#176</p>
+                            <img src="./img/svg/water.svg" alt="rain" width="48" height="48">
+                            <button class="action-button cross-button">+</button>
+                        </div>
+                        <ul class="city-weather-desc">
+                            <li class="weather-detail">
+                                <b>Wind</b>
+                                <p>Moderate breeze, 6 m/s, North-northwest</p>
+                            </li>
+                            <li class="weather-detail">
+                                <b>Cloud cover</b>
+                                <p class="detail-desc">Broken clouds</p>
+                            </li>
+                            <li class="weather-detail">
+                                <b>Pressure</b>
+                                <p class="detail-desc">1013 mb</p>
+                            </li>
+                            <li class="weather-detail">
+                                <b>Humidity</b>
+                                <p class="detail-desc">48%</p>
+                            </li>
+                            <li class="weather-detail">
+                                <b>Coordinates</b>
+                                <p class="detail-desc">[59.48, 30.42]</p>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="favourite-city">
+                        <div class="favourite-city-header">
+                            <h3 class="favourite-city-name">Moscow</h3>
+                            <p class="favourite-city-degrees">5 &#176</p>
+                            <img src="./img/svg/water.svg" alt="rain" width="48" height="48">
+                            <button class="action-button cross-button">+</button>
+                        </div>
+                        <ul class="city-weather-desc">
+                            <li class="weather-detail">
+                                <b>Wind</b>
+                                <p>Moderate breeze, 6 m/s, North-northwest</p>
+                            </li>
+                            <li class="weather-detail">
+                                <b>Cloud cover</b>
+                                <p class="detail-desc">Broken clouds</p>
+                            </li>
+                            <li class="weather-detail">
+                                <b>Pressure</b>
+                                <p class="detail-desc">1013 mb</p>
+                            </li>
+                            <li class="weather-detail">
+                                <b>Humidity</b>
+                                <p class="detail-desc">48%</p>
+                            </li>
+                            <li class="weather-detail">
+                                <b>Coordinates</b>
+                                <p class="detail-desc">[59.48, 30.42]</p>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            <!-- FAVOURITES ENDS -->
+        </div>
+    </main>
+    <!-- MAIN ENDS -->
+</body>
+</html>

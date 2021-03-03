@@ -1,0 +1,268 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0-modified | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* make sure to set some focus styles for accessibility */
+:focus {
+    outline: 0;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* roboto-regular - latin */
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''),
+         url('../fonts/roboto-v20-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url('../fonts/roboto-v20-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* roboto-500 - latin */
+@font-face {
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 500;
+src: local(''),
+        url('../fonts/roboto-v20-latin-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('../fonts/roboto-v20-latin-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* roboto-700 - latin */
+@font-face {
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 700;
+src: local(''),
+        url('../fonts/roboto-v20-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('../fonts/roboto-v20-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+
+html{
+    box-sizing: border-box;
+}
+
+*,*::before, *::after{
+    box-sizing: inherit;
+}
+
+body{
+   
+    /*background-attachment: fixed;*/
+    /* font-family: 'PT Sans'; */
+    font-family: 'Roboto';
+    font-style: normal;
+    font-size: 16px;
+    font-weight: normal;
+    color:black;
+    background-color: white;
+    scroll-behavior: smooth;
+}
+
+.img{
+    max-width: 100%;
+    height: auto;
+    text-align: center;
+    margin: auto;
+}
+
+.wrapper{
+    max-width: 1110px;
+    margin: 0 auto;
+}
+
+/* HEADER STYLES STARTS */
+.header-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 40px 0px;
+}
+
+.section-title{
+    font-size: 40px;
+}
+
+.upd-location{
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.5);
+    margin-left: 25%;
+    background-color: gainsboro;
+    border: none;
+    border-radius: 45px;
+    padding: 10px 20px;
+    transition: .3s all;
+}
+
+.upd-location:hover, .upd-location:focus, .upd-location:active{
+    transform: scale(1.1);
+}
+/* HEADER STYLES ENDS */
+
+/* MAIN STYLES STARTS */
+
+/* CURRENT CITY STYLES STARTS */
+.current-city{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 10%;
+    margin-bottom: 40px;
+}
+
+.current-city-name{
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.current-icon-and-degree{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.current-icon-and-degree:last-child{
+    font-size: 128px;
+    font-weight: bold;
+}
+
+.city-weather-desc{
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    row-gap: 10px;
+}
+
+.weather-detail{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    color: aliceblue;
+    padding: 10px 20px;
+    border-radius: 45px;
+}
+/* CURRENT CITY STYLES ENDS */
+
+/* FAVOURITES STYLES STARTS */
+.favourites{
+    margin-bottom: 40px;
+}
+
+.favourites-header{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.add-city-field{
+    padding: 10px 40px;
+    font-size: 18px;
+    background-color: gainsboro;
+    border: none;
+    border-radius: 45px;
+    transition: .3s all;
+    margin-right: 20px;
+}
+
+.add-city-field:hover, .add-city-field:focus, .add-city-field:active{
+    transform: scale(1.1);
+}
+
+.action-button{
+    padding: 10px 15px;
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.5);
+    background-color: gainsboro;
+    border: none;
+    border-radius: 45px;
+    transition: .8s all;
+}
+
+.action-button:hover, .action-button:focus, .action-button:active{
+    transform: scale(1.1) rotate(0.5turn);
+}
+
+.favourite-cities{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    column-gap: 10%;
+    row-gap: 32px;
+}
+
+.favourite-city-header{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.favourite-city-name{
+    font-size: 32px;
+    font-weight: bold; 
+}
+
+.favourite-city-degrees{
+    font-size: 48px;
+}
+
+.cross-button{
+    transform: rotate(45deg);
+}
+/* FAVOURITES STYLES ENDS */
+
+/* MAIN STYLES ENDS */
