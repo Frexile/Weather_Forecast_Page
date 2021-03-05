@@ -135,7 +135,7 @@ body{
 .upd-location{
     font-size: 18px;
     color: rgba(0, 0, 0, 0.5);
-    margin-left: 25%;
+    margin-left: 20%;
     background-color: gainsboro;
     border: none;
     border-radius: 45px;
@@ -161,7 +161,7 @@ body{
 .current-city-name{
     font-size: 40px;
     font-weight: bold;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .current-icon-and-degree{
@@ -264,5 +264,101 @@ body{
     transform: rotate(45deg);
 }
 /* FAVOURITES STYLES ENDS */
+
+/* ADAPTIVE STYLES STARTS */
+@media (max-width: 1180px){
+    .wrapper{
+        margin: 0px 5%;
+    }
+}
+
+@media (max-width: 960px){
+    .current-city, .favourite-cities{
+        /* padding: 5%; */
+        grid-template-columns: 1fr;
+    }
+
+    .current-icon-and-degree{
+        padding-bottom: 20px;
+        /* justify-content: space-around; */
+    }
+}
+
+@media (max-width: 650px){
+    .favourites-header{
+        display: block;
+    }
+
+    .add-form{
+        padding-top: 20px;
+    }
+
+}
+
+@media (max-width: 610px){
+
+    .header-wrapper{
+        justify-content: space-between;
+    }
+
+    .upd-location{
+        margin-left: 0px;
+        background: url(../img/svg/refresh.svg) no-repeat center; 
+        background-size: 28px;
+        background-color: gainsboro;
+        opacity: 0.5;
+    }
+
+    .upd-location>span{
+        display: none;
+    }
+
+    .upd-location:hover, .upd-location:active, .upd-location:focus{
+        transform: scale(1.1) rotate(360deg);
+    } 
+}
+
+@media (max-width: 450px){
+    .section-title{
+        font-size: 32px;
+    }
+
+    .upd-location{
+        background-color: white;
+    }
+    .weather-detail{
+        font-size: 0.7em;
+    }
+
+}
+
+@media (max-width: 404px) {
+    .current-city-name{
+        font-size: 32px;
+    }
+
+    .current-city-icon{
+        width: 96px;
+        height: 96px;
+    }
+
+    .current-icon-and-degree:last-child{
+        font-size: 96px;
+    }
+
+    .add-city-field{
+        font-size: 1em;
+        padding: 10px 14px;
+    }
+
+    .favourite-city-name{
+        font-size: 24px;
+    }
+
+    .favourite-city-degrees{
+        font-size: 32px;
+    }
+}
+/* ADAPTIVE STYLES ENDS */
 
 /* MAIN STYLES ENDS */
