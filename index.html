@@ -33,23 +33,23 @@
                 </div>
                 <ul class="city-weather-desc">
                     <li class="weather-detail">
-                        <b>Wind</b>
+                        <strong>Wind</strong>
                         <p>Moderate breeze, 6 m/s, North-northwest</p>
                     </li>
                     <li class="weather-detail">
-                        <b>Cloud cover</b>
+                        <strong>Cloud cover</strong>
                         <p>Broken clouds</p>
                     </li>
                     <li class="weather-detail">
-                        <b>Pressure</b>
+                        <strong>Pressure</strong>
                         <p>1013 mb</p>
                     </li>
                     <li class="weather-detail">
-                        <b>Humidity</b>
+                        <strong>Humidity</strong>
                         <p>48%</p>
                     </li>
                     <li class="weather-detail">
-                        <b>Coordinates</b>
+                        <strong>Coordinates</strong>
                         <p>[59.48, 30.42]</p>
                     </li>
                 </ul>
@@ -63,17 +63,19 @@
                     <form class="add-form">
                         <fieldset>
                             <input type="text" name="new-city" class="add-city-field" placeholder="Add new city">
-                            <button class="action-button">+</button>
+                            <button class="action-button"></button>
                         </fieldset>
                     </form>
                 </div>
                 <ul class="favourite-cities">
                     <li>
                         <div class="favourite-city-header">
-                            <h3 class="favourite-city-name">Ufa</h3>
-                            <p class="favourite-city-degrees">-10 &#176</p>
-                            <img src="./img/svg/snowflake.svg" alt="rain" width="40" height="40">
-                            <button class="action-button cross-button">+</button>
+                            <div class="favourite-city-basics">
+                                <h3 class="favourite-city-name">Astrakhan</h3>
+                                <p class="favourite-city-degrees">-10 &#176</p>
+                                <img src="./img/svg/snowflake.svg" alt="rain" width="40" height="40" class="favourite-city-icon">
+                            </div>
+                            <button class="cross-button"></button>
                         </div>
                         <ul class="city-weather-desc">
                             <li class="weather-detail">
@@ -100,10 +102,13 @@
                     </li>
                     <li>
                         <div class="favourite-city-header">
-                            <h3 class="favourite-city-name">Moscow</h3>
-                            <p class="favourite-city-degrees">-3 &#176</p>
-                            <img src="./img/svg/drop.svg" alt="rain" width="40" height="40">
-                            <button class="action-button cross-button">+</button>
+                            <div class="favourite-city-basics">
+                                <h3 class="favourite-city-name">Moscow</h3>
+                                <p class="favourite-city-degrees">-3 &#176</p>
+                                <img src="./img/svg/drop.svg" alt="rain" width="40" height="40" class="favourite-city-icon">
+                            </div>
+                            
+                            <button class="cross-button"></button>
                         </div>
                         <ul class="city-weather-desc">
                             <li class="weather-detail">
@@ -130,10 +135,13 @@
                     </li>
                     <li>
                         <div class="favourite-city-header">
-                            <h3 class="favourite-city-name">Kazan</h3>
-                            <p class="favourite-city-degrees">-7 &#176</p>
-                            <img src="./img/svg/lighting.svg" alt="rain" width="40" height="40">
-                            <button class="action-button cross-button">+</button>
+                            <div class="favourite-city-basics">
+                                <h3 class="favourite-city-name">Kazan</h3>
+                                <p class="favourite-city-degrees">-7 &#176</p>
+                                <img src="./img/svg/lighting.svg" alt="rain" width="40" height="40" class="favourite-city-icon">
+                            </div>
+                            
+                            <button class="cross-button"></button>
                         </div>
                         <ul class="city-weather-desc">
                             <li class="weather-detail">
@@ -160,10 +168,13 @@
                     </li>
                     <li>
                         <div class="favourite-city-header">
-                            <h3 class="favourite-city-name">Paris</h3>
-                            <p class="favourite-city-degrees">12 &#176</p>
-                            <img src="./img/svg/sun.svg" alt="rain" width="40" height="40">
-                            <button class="action-button cross-button">+</button>
+                            <div class="favourite-city-basics">
+                                <h3 class="favourite-city-name">Paris</h3>
+                                <p class="favourite-city-degrees">12 &#176</p>
+                                <img src="./img/svg/sun.svg" alt="rain" width="40" height="40" class="favourite-city-icon">
+                            </div>
+                            
+                            <button class="cross-button"></button>
                         </div>
                         <ul class="city-weather-desc">
                             <li class="weather-detail">
@@ -190,10 +201,13 @@
                     </li>
                     <li>
                         <div class="favourite-city-header">
-                            <h3 class="favourite-city-name">New-York</h3>
-                            <p class="favourite-city-degrees">8 &#176</p>
-                            <img src="./img/svg/cloud.svg" alt="rain" width="40" height="40">
-                            <button class="action-button cross-button">+</button>
+                            <div class="favourite-city-basics">
+                                <h3 class="favourite-city-name">New-York</h3>
+                                <p class="favourite-city-degrees">8 &#176</p>
+                                <img src="./img/svg/cloud.svg" alt="rain" width="40" height="40" class="favourite-city-icon">
+                            </div>
+                            
+                            <button class="cross-button"></button>
                         </div>
                         <ul class="city-weather-desc">
                             <li class="weather-detail">
@@ -220,10 +234,12 @@
                     </li>
                     <li>
                         <div class="favourite-city-header">
-                            <h3 class="favourite-city-name">London</h3>
-                            <p class="favourite-city-degrees">7 &#176</p>
-                            <img src="./img/svg/drop.svg" alt="rain" width="40" height="40">
-                            <button class="action-button cross-button">+</button>
+                            <div class="favourite-city-basics">
+                                <h3 class="favourite-city-name">London</h3>
+                                <p class="favourite-city-degrees">7 &#176</p>
+                                <img src="./img/svg/drop.svg" alt="rain" width="40" height="40" class="favourite-city-icon">
+                            </div>
+                            <button class="cross-button"></button>
                         </div>
                         <ul class="city-weather-desc">
                             <li class="weather-detail">

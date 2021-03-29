@@ -7,7 +7,7 @@ html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var, u, i, center,
+small, strike, sub, sup, tt, var, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
@@ -97,9 +97,6 @@ html{
 }
 
 body{
-   
-    /*background-attachment: fixed;*/
-    /* font-family: 'PT Sans'; */
     font-family: 'Roboto';
     font-style: normal;
     font-size: 16px;
@@ -125,6 +122,7 @@ body{
 .header-wrapper{
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
     margin: 40px 0px;
 }
 
@@ -135,7 +133,6 @@ body{
 .upd-location{
     font-size: 18px;
     color: rgba(0, 0, 0, 0.5);
-    margin-left: 20%;
     background-color: gainsboro;
     border: none;
     border-radius: 45px;
@@ -177,8 +174,8 @@ body{
 }
 
 .city-weather-desc{
-    display: grid;
-    grid-template-rows: repeat(5, 1fr);
+    display: flex;
+    flex-direction: column;
     row-gap: 10px;
 }
 
@@ -222,12 +219,14 @@ body{
 }
 
 .action-button{
-    padding: 10px 15px;
-    font-size: 18px;
-    color: rgba(0, 0, 0, 0.5);
+    width: 40px;
+    height: 40px;
+    background: url(../img/svg/plus.svg) no-repeat center;
+    opacity: 0.5;
     background-color: gainsboro;
-    border: none;
     border-radius: 45px;
+    border: none;
+    vertical-align: bottom;
     transition: .8s all;
 }
 
@@ -251,18 +250,37 @@ body{
     margin-bottom: 20px;
 }
 
+.favourite-city-basics{
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .favourite-city-name{
     font-size: 32px;
-    font-weight: bold; 
+    font-weight: bold;
+    margin-right: 25px; 
 }
 
 .favourite-city-degrees{
-    font-size: 40px;
+    font-size: 32px;
     font-weight: bold;
+    margin-right: 25px; 
 }
 
 .cross-button{
-    transform: rotate(45deg);
+    width: 40px;
+    height: 40px;
+    background: url(../img/svg/cancel.svg) no-repeat center;
+    opacity: 0.5;
+    background-color: gainsboro;
+    border-radius: 45px;
+    border: none;
+    vertical-align: bottom;
+    transition: .8s all;
+}
+
+.cross-button:hover, .cross-button:focus, .cross-button:active{
+    transform: scale(1.1) rotate(0.5turn);
 }
 /* FAVOURITES STYLES ENDS */
 
@@ -354,10 +372,17 @@ body{
 
     .favourite-city-name{
         font-size: 24px;
+        margin-right: 10px;
     }
 
     .favourite-city-degrees{
-        font-size: 32px;
+        font-size: 24px;
+        margin-right: 10px;
+    }
+
+    .favourite-city-icon{
+        max-height: 24px;
+        max-width: 24px;
     }
 }
 /* ADAPTIVE STYLES ENDS */
