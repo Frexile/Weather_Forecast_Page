@@ -13,7 +13,7 @@
         <div class="wrapper">
             <div class="header-wrapper">
                 <h2 class="section-title">Weather Here</h2>
-                <button class="upd-location"><span>Update geolocation<span></button>
+                <button class="upd-location" onclick="getCurrPos()"><span>Update geolocation<span></button>
             </div>
         </div>
     </header>
@@ -23,9 +23,9 @@
     <main>
         <div class="wrapper">
             <!-- CURRENT CITY STARTS -->
-            <section class="current-city">
+            <section id="current-city" class="current-city">
                 <div>
-                    <h3 class="current-city-name">Saint-Petersburg</h3>
+                    <h3 id="current-city-name" class="current-city-name">Saint-Petersburg</h3>
                     <div class="current-icon-and-degree">
                         <img src="./img/svg/cloud.svg" width="128" height="128" alt="rain" class="current-city-icon">
                         <p>3 &#176</p>
@@ -57,17 +57,57 @@
             <!-- CURRENT CITY ENDS -->
 
             <!-- FAVOURITES STARTS -->
-            <section class="favourites">
+            <section class="favourites">   
                 <div class="favourites-header">
                     <h2 class="section-title">Favourites</h2>
                     <form class="add-form">
                         <fieldset>
                             <input type="text" name="new-city" class="add-city-field" placeholder="Add new city">
-                            <button class="action-button"></button>
+                            <button class="action-button" onclick="showContent(event)"></button>
                         </fieldset>
                     </form>
                 </div>
-                <ul class="favourite-cities">
+
+
+                <button class="check" onclick="showContent()"></button>
+                <div id="fav-cities" class="favourite-cities">
+
+                    <template id="fav-tmp" class="favourite-city-tmp">
+                        <div class="clone">
+                            <div class="favourite-city-header">
+                                <div class="favourite-city-basics">
+                                    <h3 class="favourite-city-name"></h3>
+                                    <p class="favourite-city-degrees">&#176</p>
+                                    <img src="./img/svg/snowflake.svg" alt="rain" width="40" height="40" class="favourite-city-icon">
+                                </div>
+                                <button class="cross-button"></button>
+                            </div>
+                            <ul class="city-weather-desc">
+                                <li class="weather-detail">
+                                    <strong>Wind</strong>
+                                    <p></p>
+                                </li>
+                                <li class="weather-detail">
+                                    <strong>Cloud cover</strong>
+                                    <p></p>
+                                </li>
+                                <li class="weather-detail">
+                                    <strong>Pressure</strong>
+                                    <p></p>
+                                </li>
+                                <li class="weather-detail">
+                                    <strong>Humidity</strong>
+                                    <p></p>
+                                </li>
+                                <li class="weather-detail">
+                                    <strong>Coordinates</strong>
+                                    <p></p>
+                                </li>
+                        </div>
+                    </template>
+                    
+                </div>
+                <!-- <ul class="favourite-cities">
                     <li>
                         <div class="favourite-city-header">
                             <div class="favourite-city-basics">
@@ -264,11 +304,12 @@
                             </li>
                         </ul>
                     </li>
-                </ul>
+                </ul> -->
             </section>
             <!-- FAVOURITES ENDS -->
         </div>
     </main>
     <!-- MAIN ENDS -->
 </body>
+<script src="./js/main.js"></script>
 </html>
