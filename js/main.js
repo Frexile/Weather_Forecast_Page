@@ -19,83 +19,90 @@ async function getApiResponse(cityIdentifier) {
     return response.json();
 }
 
-async function showContent() { 
-    event.preventDefault();
+async function showContent(city) { 
+    // event.preventDefault();
     var temp = document.getElementById("fav-tmp").content;
-    var londonJson = await getApiResponse("London"); 
-    fillData(londonJson)
+    var jsonData = await getApiResponse(city); 
+    fillData(jsonData, 1)//remove 
 
     var copyHTML = document.importNode(temp, true);
-    document.getElementById("fav-cities").appendChild(copyHTML);
+    
 
+    const clone = temp.querySelector("div").cloneNode(true);
     
-    
+    // console.log(clone)
+    var favourites = document.querySelector("#fav-cities")
+    // console.log(favourites)
+
+    document.getElementById("fav-cities").appendChild(clone);
+
+    clone.querySelector('button').onclick = () => {
+        favourites.removeChild(clone)
+
+        const favCities = new Set(JSON.parse(localStorage.cities));
+        favCities.delete(city)
+
+        localStorage.cities = JSON.stringify([...favCities])
+    }
+
 }
 
 async function successCallBack(position){
     var currData = {};
-    // currPos = await position;
     weatherDesc.set("city", `${position.coords.latitude},${position.coords.longitude}`);
 
     currData = await getApiResponse(weatherDesc.get("city"))
+    fillData(currData, 0)
     
-    console.log(currData.current)
-    console.log('fill data...')
-    fillData(currData)
-    console.log("json in succsessCallback()",fillData(currData))
     return currData
 }
 
-function errorCallBack(){
-    weatherDesc.set("city", "Saint-Petersburg");
-    console.log(getApiResponse(weatherDesc.get("city")));
-    return getApiResponse(weatherDesc.get("city"));
+async function errorCallBack(){
+    weatherDesc.set("city", "Moscow");
+    console.log("errorResponse", getApiResponse(weatherDesc.get("city")));
+
+    var currData = {};
+    currData = await getApiResponse(weatherDesc.get("city"));
+    fillData(currData, 0)
+    return currData
 }
 
+function fillHeader(flag){
+    var cityName, tempCelsius, icon;
+    var headerInfo = {
+        cityName, tempCelsius, icon
+    }
+    
+    var temp = document.getElementById("fav-tmp").content;
 
-async function main(){
+    if (!flag){
+        headerInfo.cityName = document.querySelector("#current-city-name")
+        headerInfo.tempCelsius = document.querySelector("#current-city > div > div > p")
+        headerInfo.icon = document.querySelector("#current-city > div > div > img")
+    }
+    else {
+        headerInfo.cityName = temp.querySelector("div > div > div > h3")
+        headerInfo.tempCelsius = temp.querySelector("div > div > div > p")
+        headerInfo.icon =  temp.querySelector("div > div > div > img")
+    }
 
-    console.log("nav is working...")
-    navigator.geolocation.getCurrentPosition(successCallBack, errorCallBack);
-
-
-    console.log("nav is done")
-    console.log(weatherDesc.get("city"))
-
-
-    weatherDesc.set("city", "UFA");
-
-    console.log(weatherDesc.get("city"))
+    return headerInfo
 }
 
-// function buildCurrent(){
-//     var currentCity = document.getElementById("current-city")
-
-//     console.log(currentCity)
-
-//     currentCity.innerHTML = 
-// }
-
-function fillData(jsonData){
+function fillData(jsonData, elemId){
     const current = jsonData.current;
     const location = jsonData.location;
+    // var flag = 0;
     
-    var currentCity = document.getElementById("current-city-name")
-    console.log("json in fillData()",jsonData)
+    var header = fillHeader(elemId);
+    console.log(header)
+    header.cityName.innerHTML = location.name;
+    header.tempCelsius.innerHTML = current.temp_c + '&#176'
+    header.icon.src = current.condition.icon
 
-    currentCity.innerHTML = location.name
+    weatherParams = setSelectors(elemId);//ключ задающий значение для curr/fav
 
-    weatherParams = setSelectors(1);
-
-    
-    var deg = document.querySelector("#current-city > div > div > p")
-    deg.innerHTML = current.temp_c + '&#176'
-
-    var pic = document.querySelector("#current-city > div > div > img")
-    pic.src = current.condition.icon
-
-
-    weatherParams.get("wind").innerHTML = `${current.wind_dir},${current.wind_kph}`
+    weatherParams.get("wind").innerHTML = `${current.wind_dir}, ${current.wind_mph} m/s`
     weatherParams.get("cloud").innerHTML = `${current.cloud}%`
     weatherParams.get("pressure").innerHTML = `${current.pressure_mb} mb`
     weatherParams.get("humidity").innerHTML = `${current.humidity}%`
@@ -124,6 +131,85 @@ function setSelectors(flag){
 
     return descSamples;
 }
+
+
+async function initCurrent(){
+    var elemId = 0
+  
+    if (navigator.geolocation){
+        console.log('geolocation sucksess')
+        navigator.geolocation.getCurrentPosition(successCallBack, errorCallBack);
+    }
+    else {
+        console.log('geolocation is unavailable at your browser/OS');
+        defaultJson = await getApiResponse(localStorage.getItem('defaultCity'));
+        fillData(defaultJson, elemId)
+    }
+
+}
+
+function initStorage(){
+    var defaultFavourites = ["moscow", "new-york", "london", "tokio"]
+
+    if (localStorage.getItem('defaultCity') === null) {
+        localStorage.setItem('defaultCity', "Moscow")
+    }
+
+    if (localStorage.getItem('cities') === null) {
+        localStorage.cities = JSON.stringify(defaultFavourites)
+        // localStorage.setItem('cities', JSON.stringify(defaultFavourites))
+    }
+} 
+
+function initFavourites(){
+    var savedFavourites = JSON.parse(localStorage.cities);
+
+    for (let i = 0; i < savedFavourites.length; i++) {
+        showContent(savedFavourites[i])
+    }
+}
+
+async function addFavourite(){
+    event.preventDefault()
+    const cityField = document.querySelector("#add-city-field");
+    const newCity = cityField.value.trim().toLowerCase();
+    cityField.value = ''
+    
+    if (newCity !== '') {
+        var currFavourites = new Set(JSON.parse(localStorage.cities));
+        
+        try {
+            if (!currFavourites.has(newCity)){
+                await showContent(newCity)
+                currFavourites.add(newCity)
+            
+                localStorage.cities = JSON.stringify([...currFavourites])
+            } else {
+                window.alert(`This city (${newCity}) is already in your favourites list.`)
+            }
+        } catch(err) {
+            window.alert(`This city (${newCity}) doesn't exist. Try again`)
+        }
+    }
+}
+
+function load(){
+    const currValSelector = document.querySelector("#current-city");
+    const loaderHTML = document.getElementById('loader-tmp').content;
+    const loaderCopy = loaderHTML.querySelector('div').cloneNode(true);
+    
+    currValSelector.style.display = 'none';
+    console.log(loaderCopy)
+    
+    document.querySelector("body > main > div").insertBefore(loaderCopy, currValSelector)
+    
+}
+
+async function main(){
+    initStorage()
+    initCurrent()
+    initFavourites()
+}
+
+
 main()
-//buildCurrent()
-// fillData(getApiResponse("Moscow"))

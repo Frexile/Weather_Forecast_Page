@@ -284,6 +284,13 @@ body{
 }
 /* FAVOURITES STYLES ENDS */
 
+.loader{
+    font-size: 32px;
+    z-index: -1;
+    text-align: center;
+}
+
+
 /* ADAPTIVE STYLES STARTS */
 @media (max-width: 1180px){
     .wrapper{
