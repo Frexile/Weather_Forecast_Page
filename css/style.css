@@ -285,11 +285,14 @@ body{
 /* FAVOURITES STYLES ENDS */
 
 .loader{
-    font-size: 32px;
-    z-index: -1;
+    font-size: 24px;
     text-align: center;
+    margin-bottom: 40px;
 }
 
+.hidden{
+    display: none;
+}
 
 /* ADAPTIVE STYLES STARTS */
 @media (max-width: 1180px){
