@@ -176,7 +176,7 @@ body{
 .city-weather-desc{
     display: flex;
     flex-direction: column;
-    row-gap: 10px;
+    /* row-gap: 10px; works incorretly at ios devices */
 }
 
 .weather-detail{
@@ -188,6 +188,11 @@ body{
     color: aliceblue;
     padding: 10px 20px;
     border-radius: 45px;
+    margin-bottom: 10px;
+}
+
+.weather-detail:last-child{
+    margin-bottom: 0px
 }
 /* CURRENT CITY STYLES ENDS */
 
