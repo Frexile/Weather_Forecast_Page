@@ -10,111 +10,99 @@
 <body>
     <!-- HEADER STARTS -->
     <header>
-        <div class="wrapper">
-            <div class="header-wrapper">
-                <h2 class="section-title">Weather Here</h2>
-                <button class="upd-location" onclick="initCurrent()"><span>Update geolocation<span></button>
-            </div>
-        </div>
+        <h2 class="section-title">Weather Here</h2>
+        <button id="upd-location" onclick="initCurrent()"><span>Update geolocation<span></button>
     </header>
     <!-- HEADER ENDS -->
 
     <!-- MAIN STARTS -->
     <main>
-        <div class="wrapper">
-            <!-- CURRENT CITY STARTS -->
-            <section id="current-city" class="current-city">
-                <div>
-                    <h3 id="current-city-name" class="current-city-name">Saint-Petersburg</h3>
-                    <div class="current-icon-and-degree">
-                        <img src="./img/svg/cloud.svg" width="128" height="128" alt="rain" class="current-city-icon">
-                        <p>3 &#176</p>
+        <!-- CURRENT CITY STARTS -->
+        <section id="current-city">
+            <div>
+                <h3 id="current-city-name"></h3>
+                <div id="current-icon-and-degree">
+                    <img src="./img/svg/cloud.svg" id="current-city-icon" width="128" height="128" alt="weather-pic">
+                    <p></p>
+                </div>
+            </div>
+            <ul class="city-weather-desc">
+                <li>
+                    <strong>Wind</strong>
+                    <p></p>
+                </li>
+                <li>
+                    <strong>Cloud cover</strong>
+                    <p></p>
+                </li>
+                <li>
+                    <strong>Pressure</strong>
+                    <p></p>
+                </li>
+                <li>
+                    <strong>Humidity</strong>
+                    <p></p>
+                </li>
+                <li>
+                    <strong>Coordinates</strong>
+                    <p></p>
+                </li>
+            </ul>
+        </section>
+        <div id="loader" class="hidden">
+            <img src="./img/svg/inf-load.svg" alt="loader-logo">
+            <p>Current data is loading ...</p>
+        </div>
+        <!-- CURRENT CITY ENDS -->
+
+        <!-- FAVOURITES STARTS -->
+        <section id="favourites">   
+            <div id="favourites-header">
+                <h2 class="section-title">Favourites</h2>
+                <form id="add-form">
+                    <fieldset>
+                        <input id="add-city-field" type="text" name="new-city" placeholder="Add new city">
+                        <button id="action-button" onclick="addFavourite()"></button>
+                    </fieldset>
+                </form>
+            </div>
+            <div id="fav-cities"></div>
+        </section>
+        <template id="fav-tmp">
+            <div id="clone">
+                <div id="fav-city-header">
+                    <div id="fav-city-basics">
+                        <h3 id="fav-city-name"></h3>
+                        <p id="fav-city-degrees">&#176</p>
+                        <img src="./img/svg/snowflake.svg" id="fav-city-icon" alt="rain" width="40" height="40">
                     </div>
+                    <button id="cross-button"></button>
                 </div>
                 <ul class="city-weather-desc">
-                    <li class="weather-detail">
+                    <li>
                         <strong>Wind</strong>
-                        <p>Moderate breeze, 6 m/s, North-northwest</p>
+                        <p></p>
                     </li>
-                    <li class="weather-detail">
+                    <li>
                         <strong>Cloud cover</strong>
-                        <p>Broken clouds</p>
+                        <p></p>
                     </li>
-                    <li class="weather-detail">
+                    <li>
                         <strong>Pressure</strong>
-                        <p>1013 mb</p>
+                        <p></p>
                     </li>
-                    <li class="weather-detail">
+                    <li>
                         <strong>Humidity</strong>
-                        <p>48%</p>
+                        <p></p>
                     </li>
-                    <li class="weather-detail">
+                    <li>
                         <strong>Coordinates</strong>
-                        <p>[59.48, 30.42]</p>
+                        <p></p>
                     </li>
                 </ul>
-            </section>
-            <div class="loader hidden">
-                <img src="./img/svg/inf-load.svg" alt="loader-logo">
-                <p>Current data is loading ...</p>
             </div>
-            <!-- CURRENT CITY ENDS -->
-
-            <!-- FAVOURITES STARTS -->
-            <section class="favourites">   
-                <div class="favourites-header">
-                    <h2 class="section-title">Favourites</h2>
-                    <form class="add-form">
-                        <fieldset>
-                            <input id="add-city-field" type="text" name="new-city" class="add-city-field" placeholder="Add new city">
-                            <button class="action-button" onclick="addFavourite()"></button>
-                        </fieldset>
-                    </form>
-                </div>
-                <div id="fav-cities" class="favourite-cities"></div>
-            </section>
-            <template id="fav-tmp" class="favourite-city-tmp">
-                <div class="clone">
-                    <div class="favourite-city-header">
-                        <div class="favourite-city-basics">
-                            <h3 class="favourite-city-name"></h3>
-                            <p class="favourite-city-degrees">&#176</p>
-                            <img src="./img/svg/snowflake.svg" alt="rain" width="40" height="40" class="favourite-city-icon">
-                        </div>
-                        <button class="cross-button"></button>
-                    </div>
-                    <ul class="city-weather-desc">
-                        <li class="weather-detail">
-                            <strong>Wind</strong>
-                            <p></p>
-                        </li>
-                        <li class="weather-detail">
-                            <strong>Cloud cover</strong>
-                            <p></p>
-                        </li>
-                        <li class="weather-detail">
-                            <strong>Pressure</strong>
-                            <p></p>
-                        </li>
-                        <li class="weather-detail">
-                            <strong>Humidity</strong>
-                            <p></p>
-                        </li>
-                        <li class="weather-detail">
-                            <strong>Coordinates</strong>
-                            <p></p>
-                        </li>
-                    </ul>
-                </div>
-            </template>
-            <!-- <template id="loader-tmp">
-                <div class="loader">
-                    <img src="./img/svg/inf-load.svg" alt="loader-logo">
-                    <p>Current data is loading ...</p>
-                </div>
-            </template> -->
-            <!-- FAVOURITES ENDS -->
-        </div>
+        </template>
+        <!-- FAVOURITES ENDS -->
     </main>
     <!-- MAIN ENDS -->
 </body>

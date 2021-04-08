@@ -12,7 +12,7 @@ dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
+figure, figcaption, footer, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
   margin: 0;
@@ -30,7 +30,7 @@ time, mark, audio, video {
 
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
+footer, hgroup, menu, nav, section {
 	display: block;
 }
 
@@ -40,6 +40,22 @@ body {
 
 ol, ul {
 	list-style: none;
+}
+
+li {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    color: aliceblue;
+    padding: 10px 20px;
+    border-radius: 45px;
+    margin-bottom: 10px;
+}
+
+li:last-child{
+    margin-bottom: 0px
 }
 
 blockquote, q {
@@ -87,7 +103,6 @@ src: local(''),
         url('../fonts/roboto-v20-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
-
 html{
     box-sizing: border-box;
 }
@@ -104,6 +119,8 @@ body{
     color:black;
     background-color: white;
     scroll-behavior: smooth;
+    max-width: 1110px;
+    margin: 0 auto;
 }
 
 .img{
@@ -113,13 +130,8 @@ body{
     margin: auto;
 }
 
-.wrapper{
-    max-width: 1110px;
-    margin: 0 auto;
-}
-
 /* HEADER STYLES STARTS */
-.header-wrapper{
+header {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -130,7 +142,7 @@ body{
     font-size: 40px;
 }
 
-.upd-location{
+#upd-location{
     font-size: 18px;
     color: rgba(0, 0, 0, 0.5);
     background-color: gainsboro;
@@ -140,7 +152,7 @@ body{
     transition: .3s all;
 }
 
-.upd-location:hover, .upd-location:focus, .upd-location:active{
+#upd-location:hover, #upd-location:focus, #upd-location:active{
     transform: scale(1.1);
 }
 /* HEADER STYLES ENDS */
@@ -148,27 +160,27 @@ body{
 /* MAIN STYLES STARTS */
 
 /* CURRENT CITY STYLES STARTS */
-.current-city{
+#current-city{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     column-gap: 10%;
     margin-bottom: 40px;
 }
 
-.current-city-name{
+#current-city-name{
     font-size: 40px;
     font-weight: bold;
     margin-bottom: 20px;
 }
 
-.current-icon-and-degree{
+#current-icon-and-degree{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
 }
 
-.current-icon-and-degree:last-child{
+#current-icon-and-degree:last-child{
     font-size: 128px;
     font-weight: bold;
 }
@@ -176,32 +188,15 @@ body{
 .city-weather-desc{
     display: flex;
     flex-direction: column;
-    /* row-gap: 10px; works incorretly at ios devices */
-}
-
-.weather-detail{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    background-color: black;
-    color: aliceblue;
-    padding: 10px 20px;
-    border-radius: 45px;
-    margin-bottom: 10px;
-}
-
-.weather-detail:last-child{
-    margin-bottom: 0px
 }
 /* CURRENT CITY STYLES ENDS */
 
 /* FAVOURITES STYLES STARTS */
-.favourites{
+#favourites{
     margin-bottom: 40px;
 }
 
-.favourites-header{
+#favourites-header{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -209,7 +204,7 @@ body{
     margin-bottom: 40px;
 }
 
-.add-city-field{
+#add-city-field{
     padding: 10px 40px;
     font-size: 18px;
     background-color: gainsboro;
@@ -219,11 +214,11 @@ body{
     margin-right: 20px;
 }
 
-.add-city-field:hover, .add-city-field:focus, .add-city-field:active{
+#add-city-field:hover, #add-city-field:focus, #add-city-field:active{
     transform: scale(1.1);
 }
 
-.action-button{
+#action-button{
     width: 40px;
     height: 40px;
     background: url(../img/svg/plus.svg) no-repeat center;
@@ -235,19 +230,18 @@ body{
     transition: .8s all;
 }
 
-.action-button:hover, .action-button:focus, .action-button:active{
+#action-button:hover, #action-button:focus, #action-button:active{
     transform: scale(1.1) rotate(0.5turn);
 }
 
-.favourite-cities{
+#fav-cities{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
     column-gap: 10%;
     row-gap: 32px;
 }
 
-.favourite-city-header{
+#fav-city-header{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -255,24 +249,24 @@ body{
     margin-bottom: 20px;
 }
 
-.favourite-city-basics{
+#fav-city-basics{
     display: flex;
     flex-wrap: wrap;
 }
 
-.favourite-city-name{
+#fav-city-name{
     font-size: 32px;
     font-weight: bold;
     margin-right: 25px; 
 }
 
-.favourite-city-degrees{
+#fav-city-degrees{
     font-size: 32px;
     font-weight: bold;
     margin-right: 25px; 
 }
 
-.cross-button{
+#cross-button{
     width: 40px;
     height: 40px;
     background: url(../img/svg/cancel.svg) no-repeat center;
@@ -284,12 +278,12 @@ body{
     transition: .8s all;
 }
 
-.cross-button:hover, .cross-button:focus, .cross-button:active{
+#cross-button:hover, #cross-button:focus, #cross-button:active{
     transform: scale(1.1) rotate(0.5turn);
 }
 /* FAVOURITES STYLES ENDS */
 
-.loader{
+#loader{
     font-size: 24px;
     text-align: center;
     margin-bottom: 40px;
@@ -301,41 +295,38 @@ body{
 
 /* ADAPTIVE STYLES STARTS */
 @media (max-width: 1180px){
-    .wrapper{
+    body{
         margin: 0px 5%;
     }
 }
 
 @media (max-width: 960px){
-    .current-city, .favourite-cities{
-        /* padding: 5%; */
+    #current-city, #fav-cities{
         grid-template-columns: 1fr;
     }
 
-    .current-icon-and-degree{
+    #current-icon-and-degree{
         padding-bottom: 20px;
-        /* justify-content: space-around; */
     }
 }
 
 @media (max-width: 650px){
-    .favourites-header{
+    #favourites-header{
         display: block;
     }
 
-    .add-form{
+    #add-form{
         padding-top: 20px;
     }
-
 }
 
 @media (max-width: 610px){
 
-    .header-wrapper{
+    header{
         justify-content: space-between;
     }
 
-    .upd-location{
+    #upd-location{
         margin-left: 0px;
         background: url(../img/svg/refresh.svg) no-repeat center; 
         background-size: 28px;
@@ -343,11 +334,11 @@ body{
         opacity: 0.5;
     }
 
-    .upd-location>span{
+    #upd-location>span{
         display: none;
     }
 
-    .upd-location:hover, .upd-location:active, .upd-location:focus{
+    #upd-location:hover, #upd-location:active, #upd-location:focus{
         transform: scale(1.1) rotate(360deg);
     } 
 }
@@ -357,45 +348,45 @@ body{
         font-size: 32px;
     }
 
-    .upd-location{
+    upd-location{
         background-color: white;
     }
-    .weather-detail{
+    li{
         font-size: 0.7em;
     }
 
 }
 
 @media (max-width: 404px) {
-    .current-city-name{
+    #current-city-name{
         font-size: 32px;
     }
 
-    .current-city-icon{
+    #current-city-icon{
         width: 96px;
         height: 96px;
     }
 
-    .current-icon-and-degree:last-child{
+    #current-icon-and-degree:last-child{
         font-size: 96px;
     }
 
-    .add-city-field{
+    #add-city-field{
         font-size: 1em;
         padding: 10px 14px;
     }
 
-    .favourite-city-name{
+    #fav-city-name{
         font-size: 24px;
         margin-right: 10px;
     }
 
-    .favourite-city-degrees{
+    #fav-city-degrees{
         font-size: 24px;
         margin-right: 10px;
     }
 
-    .favourite-city-icon{
+    #fav-city-icon{
         max-height: 24px;
         max-width: 24px;
     }

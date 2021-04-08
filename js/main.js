@@ -17,7 +17,7 @@ async function getApiResponse(cityIdentifier) {
 async function showContent(city) {
   var temp = document.getElementById("fav-tmp").content;
   var jsonData = await getApiResponse(city);
-//   load()
+
   fillData(jsonData, 1); //remove
 
   const clone = temp.querySelector("div").cloneNode(true);
@@ -47,11 +47,9 @@ async function successCallBack(position) {
 }
 
 async function errorCallBack() {
-  weatherDesc.set("city", "Moscow");
-  console.log("errorResponse", getApiResponse(weatherDesc.get("city")));
-
   var currData = {};
-  currData = await getApiResponse(weatherDesc.get("city"));
+  console.log(localStorage.defaultCity)
+  currData = await getApiResponse(localStorage.defaultCity);
   fillData(currData, 0);
 
   return currData;
@@ -125,7 +123,7 @@ async function initCurrent() {
   var elemId = 0;
   load();
   if (navigator.geolocation) {
-    console.log("Geolocation succsess");
+    console.log("Geolocation success");
     navigator.geolocation.getCurrentPosition(successCallBack, errorCallBack);
   } else {
     console.log("Geolocation is unavailable at your browser/OS");
@@ -189,17 +187,16 @@ function toUpperFirst(str) {
 }
 
 function load() {
-
-  const currValSelector = document.querySelector("#current-city");
-  const loaderSelector = document.querySelector("body > main > div > div");
-
+  const currValSelector = document.querySelectorAll("section")[0];
+  const loaderSelector = document.querySelector("body > main > div");
+  console.log(currValSelector)
   currValSelector.classList.add("hidden");
   loaderSelector.classList.remove("hidden");
 
   setTimeout(() => {
     loaderSelector.classList.add("hidden");
     currValSelector.classList.remove("hidden");
-  }, 600);
+  }, 1000);
 }
 
 async function main() {

@@ -1,0 +1,19 @@
+{
+  "name": "weather_forecast_page",
+  "version": "1.0.0",
+  "description": "Implementation of ITMO University 3-rd grade Web course. The project is weather forecast page which is splitted on 3 parts (labs).",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Frexile/Weather_Forecast_Page.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Frexile/Weather_Forecast_Page/issues"
+  },
+  "homepage": "https://github.com/Frexile/Weather_Forecast_Page#readme"
+}
