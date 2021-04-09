@@ -5,12 +5,20 @@ async function addFavourite() {
     cityField.value = "";
   
     if (newCity !== "") {
-      var currFavourites = new Set(JSON.parse(localStorage.cities));
-  
+      var currFavourites = new Map(JSON.parse(localStorage.cities));
+      console.log(currFavourites)
+
+      let data = await getApiResponse(newCity);
+      let currCoords = `${data.location.lat},${data.location.lon}`
+      console.log("CURR COORDS", currCoords)
+      console.log(currFavourites.has(currCoords))
+
       try {
-        if (!currFavourites.has(newCity)) {
+        if (!currFavourites.has(currCoords)) {
           await createCard(newCity);
-          currFavourites.add(newCity);
+
+          currFavourites.set(currCoords, newCity)
+          // currFavourites.add(newCity);
   
           localStorage.cities = JSON.stringify([...currFavourites]);
         } else {

@@ -2,7 +2,7 @@ async function createCard(city) {
     var temp = document.getElementById("fav-tmp").content;
         var jsonData = await getApiResponse(city);
     
-        fillData(jsonData, 1); //remove
+        var coords = fillData(jsonData, 1); //remove
     
         const clone = temp.querySelector("div").cloneNode(true);
         var favourites = document.querySelector("#fav-cities");
@@ -12,8 +12,10 @@ async function createCard(city) {
         clone.querySelector("button").onclick = () => {
             favourites.removeChild(clone);
         
-            const favCities = new Set(JSON.parse(localStorage.cities));
-            favCities.delete(city);
+            const favCities = new Map(JSON.parse(localStorage.cities));
+            console.log("COORDS BEFORE REMOVE", coords)
+            favCities.delete(coords)
+            // favCities.delete(city);
         
             localStorage.cities = JSON.stringify([...favCities]);
         };
@@ -49,6 +51,12 @@ function fillData(jsonData, elemId) {
     const location = jsonData.location;
     var header = fillHeader(elemId);
 
+
+
+    console.log(localStorage.cities)
+    var coords = `${location.lat},${location.lon}`
+    console.log(coords)
+
     header.cityName.innerHTML = location.name;
     header.tempCelsius.innerHTML = current.temp_c + "&#176";
     header.icon.src = current.condition.icon;
@@ -60,4 +68,6 @@ function fillData(jsonData, elemId) {
     weatherParams.get("pressure").innerHTML = `${current.pressure_mb} mb`;
     weatherParams.get("humidity").innerHTML = `${current.humidity}%`;
     weatherParams.get("coords").innerHTML = `[${location.lat}, ${location.lon}]`;
+
+    return coords;
 }
