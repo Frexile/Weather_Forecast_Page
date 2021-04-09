@@ -15,7 +15,7 @@ function initStorage() {
 
 async function initCurrent() {
     var elemId = 0;
-    load();
+    load(0);
     if (navigator.geolocation) {
       console.log("Geolocation success");
       navigator.geolocation.getCurrentPosition(successCallBack, errorCallBack);
@@ -46,14 +46,16 @@ async function errorCallBack() {
 
 async function initFavourites() {
     var savedFavourites = JSON.parse(localStorage.cities);
-    // console.log(savedFavourites)
-    // await Promise.all(savedFavourites.map((item) => {
-    //     console.log(item)
-    //     createCard(item[1]);
-    // }))
+    load(1)
 
-    for (let i = 0; i < savedFavourites.length; i++) {
+    let weatherResponses = await Promise.all(savedFavourites.map((item) => 
+        getApiResponse(item)
+    ));
+    
+    console.log(weatherResponses)
+
+    for (let i = 0; i < weatherResponses.length; i++) {
         // console.log(savedFavourites[i])
-        createCard(savedFavourites[i]);
+        createCard(weatherResponses[i]);
     }
 }

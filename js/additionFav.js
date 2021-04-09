@@ -8,14 +8,16 @@ async function addFavourite() {
       var currFavourites = new Map(JSON.parse(localStorage.cities));
       console.log(currFavourites)
 
-      let data = await getApiResponse(newCity);
-      let currCoords = `${data.location.lat},${data.location.lon}`
-      console.log("CURR COORDS", currCoords)
-      console.log(currFavourites.has(currCoords))
+      
 
       try {
+        let data = await getApiResponse(newCity);
+        let currCoords = `${data.location.lat},${data.location.lon}`
+        console.log("CURR COORDS", currCoords)
+        console.log(currFavourites.has(currCoords))
+
         if (!currFavourites.has(currCoords)) {
-          await createCard(newCity);
+          await createCard(data);
 
           currFavourites.set(currCoords, newCity)
           // currFavourites.add(newCity);

@@ -42,7 +42,7 @@ ol, ul {
 	list-style: none;
 }
 
-li {
+.city-weather-desc li {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;

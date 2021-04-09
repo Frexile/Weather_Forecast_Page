@@ -1,24 +1,24 @@
 async function createCard(city) {
     var temp = document.getElementById("fav-tmp").content;
-        var jsonData = await getApiResponse(city);
+    // var jsonData = city;
+
+    var coords = fillData(city, 1); //remove
+
+    const clone = temp.querySelector("div").cloneNode(true);
+    var favourites = document.querySelector("#fav-cities");
+
+    document.getElementById("fav-cities").appendChild(clone);
+
+    clone.querySelector("button").onclick = () => {
+        favourites.removeChild(clone);
     
-        var coords = fillData(jsonData, 1); //remove
+        const favCities = new Map(JSON.parse(localStorage.cities));
+        console.log("COORDS BEFORE REMOVE", coords)
+        favCities.delete(coords)
+        // favCities.delete(city);
     
-        const clone = temp.querySelector("div").cloneNode(true);
-        var favourites = document.querySelector("#fav-cities");
-    
-        document.getElementById("fav-cities").appendChild(clone);
-    
-        clone.querySelector("button").onclick = () => {
-            favourites.removeChild(clone);
-        
-            const favCities = new Map(JSON.parse(localStorage.cities));
-            console.log("COORDS BEFORE REMOVE", coords)
-            favCities.delete(coords)
-            // favCities.delete(city);
-        
-            localStorage.cities = JSON.stringify([...favCities]);
-        };
+        localStorage.cities = JSON.stringify([...favCities]);
+    };
 }
 
 function fillHeader(flag) {
@@ -50,8 +50,6 @@ function fillData(jsonData, elemId) {
     const current = jsonData.current;
     const location = jsonData.location;
     var header = fillHeader(elemId);
-
-
 
     console.log(localStorage.cities)
     var coords = `${location.lat},${location.lon}`
