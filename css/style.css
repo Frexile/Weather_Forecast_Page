@@ -54,7 +54,7 @@ ol, ul {
     margin-bottom: 10px;
 }
 
-li:last-child{
+.city-weather-desc li :last-child{
     margin-bottom: 0px
 }
 
