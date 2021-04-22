@@ -23,11 +23,13 @@ function toUpperFirst(str) {
   return str[0].toUpperCase() + str.slice(1);
 }
 
-const uriSample = "http://localhost:3000";
+const uriSample = "https://weather-forecast-page.herokuapp.com";
 const defaultCity = "Moscow";
 
 
 async function initFavs(){
+  // load(document.getElementById("fav-cities"), document.getElementById("favourites"))
+
   const favsResponses = await fetch(uriSample + "/favourites", {
     method : "GET"
   });
@@ -35,7 +37,6 @@ async function initFavs(){
   const data = await favsResponses.json();
 
   data.map(item => {
-    console.log(item);
     generateCard(item);
   });
 }
@@ -53,7 +54,6 @@ async function generateCard(cityJson){
   clone.querySelector("button").onclick = async () => {
     favourites.removeChild(clone);
     
-
     try {
 
       console.log(cityJson.cityName);
@@ -68,8 +68,6 @@ async function generateCard(cityJson){
         mode : 'cors',
         body : JSON.stringify(bodyData)
       });
-      console.log(data.headers.get('Content-Type'))
-      console.log(data.body)
     } catch (err) {
       console.error(err); 
     }
@@ -116,6 +114,8 @@ function fillHeader(flag) {
 }
 
 async function initCurr() {
+  load(document.querySelectorAll("section")[0], document.querySelector("main"));
+
   if (navigator.geolocation) {
     console.log("Geolocation success");
 
@@ -193,6 +193,32 @@ async function addFav() {
       );
     }
   }
+}
+
+function load(selector, parentSelector) {
+  var currValSelector;
+  var loaderTemp = document.getElementById("load-tmp").content;
+  var loaderClone = loaderTemp.querySelector("div").cloneNode(true);
+  var loaderSelector;
+  loaderClone.id = "curr-loader";
+  
+  currValSelector = selector;
+  let parent = parentSelector;
+  let loader = parent.insertBefore(loaderClone, currValSelector);
+
+  loaderSelector = document.getElementById("curr-loader");
+  
+  loaderSelector.style.display = "block";
+  currValSelector.style.display = "none";
+  
+
+  setTimeout(() => {
+    currValSelector.style.display = "grid";
+    loaderSelector.style.display = "none";
+    // console.log(parent)
+    parent.removeChild(loaderSelector);
+  }, 1300);
+  
 }
 
 initCurr();
